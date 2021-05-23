@@ -256,8 +256,10 @@ html {
 .todo__list--task--action:hover .dropdown__action{
     display: block;
 }
-
-
+.todo__app-body {
+	background: linear-gradient(89.95deg, rgba(73, 222, 255, 0.093) -14.23%, rgba(73, 222, 255, 0.084) 103.86%);
+	padding: 1% 2% 5%;
+}
 
 @keyframes downSlow{
     0% {
