@@ -8,9 +8,97 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    
-
-
+    <section class="container body">
+        <div class="todo__app">
+            <div class="todo__app-heading">
+                <h3>TODO LIST</h3>
+            </div>
+            <div class="todo__app-nav border-radius">
+                <div class="todo__app-nav--container color-white flex align-items-center justify-content-between">
+                    <h3 class="todo__app-nav--txt">Add you task</h3>
+                    <button class="todo__app-nav--button">
+                        <span class="button__icon">&#43;</span>
+                    </button>
+                </div>
+            </div>
+            <div class="todo__app-body">
+                <div class="todo__app--todo">
+                    <!-- ---- WORK WITH IT ---- -->
+                    <div class="todo__list border-radius">
+                        <div class="flex align-items-center justify-content-between">
+                            <div class="left flex align-items-center">
+                                <div class="bubble"></div>
+                                <div class="todo__list--task">
+                                    <p class="color-black">Design a UI for todo list..</p>
+                                </div>
+                            </div>
+                            <div class="right">
+                                <div class="todo__list--task--action">
+                                    <div class="menu__action"></div>
+                                    <div class="dropdown__action border-radius">
+                                        <div class="row">
+                                            <div class="flex align-items-center">
+                                                <button class="action__pls margin-right-small">
+                                                    <span class="action-sign">&check;</span>
+                                                </button>
+                                                <div class="action__txt">completed</div>
+                                            </div>
+                                            <div class="indicator-drp"></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="flex align-items-center">
+                                                <button class="action__pls margin-right-small">
+                                                    <span class="action-sign">&minus;</span>
+                                                </button>
+                                                <div class="action__txt">delete task</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- --- 1ST --- -->
+                    <div class="todo__list border-radius">
+                        <div class="flex align-items-center justify-content-between">
+                            <div class="left flex align-items-center">
+                                <div class="bubble bubble-danger"></div>
+                                <div class="todo__list--task">
+                                    <p class="color-black text-line-through text-decorate-red">Design a UI for todo list..</p>
+                                </div>
+                            </div>
+                            <div class="right">
+                                <div class="todo__list--task--action">
+                                    <div class="menu__action"></div>
+                                    <div class="dropdown__action border-radius">
+                                        <div class="row">
+                                            <div class="flex align-items-center">
+                                                <button class="action__pls margin-right-small">
+                                                    <span class="action-sign">&check;</span>
+                                                </button>
+                                                <div class="action__txt">completed</div>
+                                            </div>
+                                            <div class="indicator-drp"></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="flex align-items-center">
+                                                <button class="action__pls margin-right-small">
+                                                    <span class="action-sign">&minus;</span>
+                                                </button>
+                                                <div class="action__txt">delete task</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- --- 2ND --- -->
+                    <!-- ---- WORK WITH IT ---- -->
+                </div>
+            </div>
+        </div>
+    </section>
     <script src="js/main.js"></script>
 </body>
 </html>
