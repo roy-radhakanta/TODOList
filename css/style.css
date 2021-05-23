@@ -60,7 +60,15 @@ html {
 .text-right {
   text-align: right;
 }
+.text-line-through {
+  text-decoration: line-through;
+}
+.text-decorate-red {
+  text-decoration-color: var(--red-color);
+}
 /* ____ TEXT / FONT ______ */
+
+/* _____ FLEX / ALL POSITONS _____ */
 .flex {
   display: flex;
 }
@@ -70,12 +78,10 @@ html {
 .justify-content-between {
   justify-content: space-between;
 }
-.text-line-through {
-  text-decoration: line-through;
+.justify-content-center{
+  justify-content: center;
 }
-.text-decorate-red {
-  text-decoration-color: var(--red-color);
-}
+/* _____ FLEX / ALL POSITONS _____ */
 .margin-right-small {
   margin-right: 0.5rem;
 }
@@ -263,6 +269,51 @@ html {
 	background: linear-gradient(89.95deg, rgba(73, 222, 255, 0.093) -14.23%, rgba(73, 222, 255, 0.084) 103.86%);
 	padding: 1% 2% 5%;
 }
+.add__task {
+  display: none;
+	position: absolute;
+	width: 20rem;
+	padding: 1rem;
+	right: 6%;
+	top: 48%;
+  transition: all 5s ease-in-out;
+  animation: popupCard 0.7s ease-in-out;
+}
+.add__task--modal {
+	background: rgb(222, 249, 255);
+	border-radius: 4px;
+	box-shadow: 0px 11px 23px #a4a4a447;
+	padding-bottom: 0.5rem;
+}
+.add__task--input {
+	padding: 0% 0 6% 0%;
+}
+.input {
+	width: 100%;
+	background: var(--secondary-color);
+	border: none;
+	outline: none;
+	padding: 3%;
+	color: var(--desk-color);
+	font-size: 15px;
+	font-weight: 700;
+	border-radius: 3px 3px 0 0;
+	box-shadow: 0px 11px 19px #0000002e;
+}
+.button{
+    border: none;
+    outline: none;
+    font-size: 18px;
+    padding: .3rem 2rem;
+    cursor: pointer;
+}
+.button__add{
+  background: var(--secondary-color);
+  margin-right: .4rem;
+}
+.button__delete{
+  background: #FA2828;
+}
 
 @keyframes downSlow{
     0% {
@@ -284,4 +335,29 @@ html {
     100% {
         opacity: 1;
     }
+}
+
+@keyframes popupCard {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.4);
+    }
+    60% {
+      transform: scale(1.1);
+    }
+    70% {
+      transform: scale(1.2);
+    }
+    80% {
+      transform: scale(1);
+    }
+    90% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+    }
+
 }
