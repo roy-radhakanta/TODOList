@@ -148,7 +148,7 @@ html {
   background-color: var(--primary-color);
   margin-top: 1rem;
   position: relative;
-  transition: all .9s ease-in-out;
+  transition: position 0.3s ease;
   animation: downSlow 0.9s ease-in-out;
   backface-visibility: hidden;
   -moz-backface-visibility: hidden;

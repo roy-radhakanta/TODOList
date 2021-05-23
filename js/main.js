@@ -56,7 +56,7 @@ var uiModule = (function(){
         },
         clearInput: function(){
             document.querySelector(domSelector.input).value = '';
-            document.querySelector(domSelector.input).focus;
+            document.querySelector(domSelector.input).focus();
         }
     };
 })();
@@ -80,11 +80,13 @@ var controller = (function(dataSr, uiMo){
     
     var dataControl = function(){
         var dta = uiMo.domValue();
-        // add the data to data base
-        var storedData = dataSr.addItemToDb(dta);
-        // add the data to ui
-        uiMo.showActualData(storedData);
-        uiMo.clearInput();
+        if (dta != '') {
+            // add the data to data base
+            var storedData = dataSr.addItemToDb(dta);
+            // add the data to ui
+            uiMo.showActualData(storedData);
+            uiMo.clearInput();
+        }
     };
 
     return {
