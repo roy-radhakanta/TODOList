@@ -259,12 +259,12 @@ html {
 
 @keyframes downSlow{
     0% {
-        transform-origin: left top;
-        transform: scaleY(0);
+        margin-top:-100%;
     }
-
+  70%{
+      margin-top: 2%;
+  }
     100%{
-        transform-origin: left top;
-        transform: scaleY(1);
+        margin-top:0%;
     }
 }
