@@ -137,6 +137,7 @@ html {
   background-color: var(--primary-color);
   margin-top: 1rem;
   position: relative;
+  transition: all .9s ease-in-out;
   animation: downSlow 0.9s ease-in-out;
   backface-visibility: hidden;
   -moz-backface-visibility: hidden;
@@ -259,12 +260,12 @@ html {
 
 @keyframes downSlow{
     0% {
-        margin-top:-100%;
+        top:-100%;
     }
   70%{
-      margin-top: 2%;
+      top: 10%;
   }
     100%{
-        margin-top:0%;
+        top:0%;
     }
 }
