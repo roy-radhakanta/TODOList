@@ -87,9 +87,11 @@ html {
 }
 
 .todo__app-nav {
-  padding: 2%;
-  background: var(--nav-gradient);
-  box-shadow: 6px 7px 28px 1px rgba(0, 0, 0, 0.25);
+	padding: 2%;
+	background: var(--nav-gradient);
+	box-shadow: 6px 7px 28px 1px rgba(0, 0, 0, 0.25);
+	position: relative;
+	z-index: 99999;
 }
 
 .todo__app-heading {
@@ -217,6 +219,7 @@ html {
 	line-height: 2.4;
 	top: 102%;
     z-index: 9;
+    animation: apprSurp 0.5s ease-in-out;
 }
 .row{
     position: relative;
@@ -254,18 +257,26 @@ html {
     display: block;
 }
 
-.todo__app-body{
-    overflow: hidden;
-}
+
 
 @keyframes downSlow{
     0% {
-        top:-100%;
+        top:-75%;
     }
   70%{
       top: 10%;
   }
     100%{
         top:0%;
+    }
+}
+
+@keyframes apprSurp{
+    0% {
+        opacity: 0;
+    }
+    
+    100% {
+        opacity: 1;
     }
 }
