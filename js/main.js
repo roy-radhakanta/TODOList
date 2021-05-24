@@ -96,8 +96,10 @@ var controller = (function(dataSr, uiMo){
         document.addEventListener('click', function(event){
             var eventId = event.target.id;
             if (eventId === 'action__txt--1') { 
-                document.querySelector(doms.lineThrough).style.textDecoration = 'line-through';
-                document.querySelector(doms.lineThrough).style.textDecorationColor  = 'red';
+                var lineth 
+                lineth = document.querySelector(doms.lineThrough);
+                lineth.style.textDecoration = 'line-through';
+                lineth.style.textDecorationColor  = 'red';
                 document.querySelector(doms.bubble).style.background  = 'red';
             }else if(eventId === 'action__txt--2'){
                 var parentId, sliceId, listTp, listId;
