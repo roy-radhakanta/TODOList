@@ -20,6 +20,16 @@ var dataStrure = (function(){
             dataBase.value.push(newObj);
             return newObj;
         },
+        deleteFrmDs: function(id){
+            var ids, index;
+            ids = dataBase.value.map(function(current){
+                return current.id;
+            });
+            index = ids.indexOf(id);
+            if (index !== -1) {
+                dataBase.value.splice(index, 1);
+            }
+        },
         testing: function(){
             return dataBase.value;
         }
@@ -36,7 +46,9 @@ var uiModule = (function(){
         modalDelBtn: '.button__delete',
         listContainer: '.todo__app--todo',
         completeBtn: '.action__txt',
-        deleteBtn: '.action__txt'
+        deleteBtn: '.action__txt',
+        lineThrough: '.left',
+        bubble: '.bubble'
     };
 
     return{
@@ -49,7 +61,7 @@ var uiModule = (function(){
         showActualData: function(objx){
             var htmxl, newHxtml, elementy;
             elementy = domSelector.listContainer;
-            htmxl = '<div class="todo__list border-radius" id="list-%id%"><div class="flex align-items-center justify-content-between"><div class="left flex align-items-center"><div class="bubble"></div><div class="todo__list--task"><p class="color-black">%value%</p></div></div><div class="right"><div class="todo__list--task--action"><div class="menu__action"></div><div class="dropdown__action border-radius"><div class="row"><div class="flex align-items-center"><button class="action__pls margin-right-small"><span class="action-sign">&check;</span></button><div class="action__txt">completed</div></div><div class="indicator-drp"></div></div><div class="row"><div class="flex align-items-center"><button class="action__pls margin-right-small"><span class="action-sign">&minus;</span></button><div class="action__txt">delete task</div></div></div></div></div></div></div></div>';
+            htmxl = '<div class="todo__list border-radius" id="list-%id%"><div class="flex align-items-center justify-content-between"><div class="left flex align-items-center"><div class="bubble"></div><div class="todo__list--task"><p class="color-black">%value%</p></div></div><div class="right"><div class="todo__list--task--action"><div class="menu__action"></div><div class="dropdown__action border-radius"><div class="row"><div class="flex align-items-center"><button class="action__pls margin-right-small"><span class="action-sign">&check;</span></button><div class="action__txt " id="action__txt--1">completed</div></div><div class="indicator-drp"></div></div><div class="row"><div class="flex align-items-center"><button class="action__pls margin-right-small"><span class="action-sign">&minus;</span></button><div class="action__txt" id="action__txt--2">delete task</div></div></div></div></div></div></div></div>';
             newHxtml = htmxl.replace('%id%', objx.id);
             newHxtml = newHxtml.replace('%value%', objx.value);
             document.querySelector(elementy).insertAdjacentHTML("afterend", newHxtml);
@@ -57,6 +69,10 @@ var uiModule = (function(){
         clearInput: function(){
             document.querySelector(domSelector.input).value = '';
             document.querySelector(domSelector.input).focus();
+        },
+        deleteData: function(prntId){   
+            var toRmv = document.getElementById(prntId);
+            toRmv.parentNode.removeChild(toRmv);
         }
     };
 })();
@@ -70,7 +86,30 @@ var controller = (function(dataSr, uiMo){
         document.querySelector(doms.plusButton).addEventListener('click', function(){
             document.querySelector(doms.modal).style.display = 'block';
             document.querySelector(doms.modalAddBtn).addEventListener('click', dataControl);
-            document.querySelector(doms.modalDelBtn).addEventListener('click', hideModal);;
+            document.querySelector(doms.modalDelBtn).addEventListener('click', hideModal);
+        });
+        targetChecker();
+    };
+
+    var targetChecker = function(){
+        document.addEventListener('click', function(event){
+            var eventId = event.target.id;
+            console.log(eventId);
+            if (eventId === 'action__txt--1') { 
+                document.querySelector(doms.lineThrough).style.textDecoration = 'line-through';
+                document.querySelector(doms.lineThrough).style.textDecorationColor  = 'red';
+                document.querySelector(doms.bubble).style.background  = 'red';
+            }else if(eventId === 'action__txt--2'){
+                var parentId, sliceId, listTp, listId;
+                parentId = event.target.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.id;
+                console.log(parentId);
+                sliceId = parentId.split('-');
+                listTp = sliceId[0];
+                listId = parseInt(sliceId[1]);  
+                
+                dataSr.deleteFrmDs(listId);    
+                uiMo.deleteData(parentId);
+            }
         });
     };
 
