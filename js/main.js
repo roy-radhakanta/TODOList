@@ -78,7 +78,7 @@ var uiModule = (function(){
     };
 })();
 
-//GLOBAL CONTROLLER
+//GLOBAL CONTROLLER MODULE
 var controller = (function(dataSr, uiMo){
     var doms;
     doms = uiMo.allSelectors();
