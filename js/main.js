@@ -29,10 +29,11 @@ var dataStrure = (function(){
             if (index !== -1) {
                 dataBase.value.splice(index, 1);
             }
-        },
-        testing: function(){
-            return dataBase.value;
         }
+        // ,
+        // testing: function(){
+        //     return dataBase.value;
+        // }
     };    
 })();
 
@@ -94,7 +95,6 @@ var controller = (function(dataSr, uiMo){
     var targetChecker = function(){
         document.addEventListener('click', function(event){
             var eventId = event.target.id;
-            console.log(eventId);
             if (eventId === 'action__txt--1') { 
                 document.querySelector(doms.lineThrough).style.textDecoration = 'line-through';
                 document.querySelector(doms.lineThrough).style.textDecorationColor  = 'red';
@@ -102,11 +102,9 @@ var controller = (function(dataSr, uiMo){
             }else if(eventId === 'action__txt--2'){
                 var parentId, sliceId, listTp, listId;
                 parentId = event.target.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.id;
-                console.log(parentId);
                 sliceId = parentId.split('-');
                 listTp = sliceId[0];
                 listId = parseInt(sliceId[1]);  
-                
                 dataSr.deleteFrmDs(listId);    
                 uiMo.deleteData(parentId);
             }
